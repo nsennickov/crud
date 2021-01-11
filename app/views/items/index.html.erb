@@ -1,0 +1,25 @@
+<div class="card">
+    <h1 class="card-header">TODO List</h1>
+
+    <div class="add-todo-wrapper d-flex justify-content-center w-100">
+        <%= form_for :item, url: items_path do |t|%>
+            <%= t.text_field :todos %>
+            <%= t.submit value="ADD TODO", class: "btn btn-outline-success add-todo"%>
+        <% end %>
+    </div>
+
+    <div class="todo-list-wrapper">
+        <% @todos.each do |item| %>
+            <div class="todo-item d-flex flex-row justify-content-between">
+                <h2><%= item.todo%></h2>
+                
+                <div class="d-flex w-10 justify-content-between">
+                    <%= button_to "C", {controller: "items", action: "edit", id: item.id}, {class: 'btn btn-primary'}%>
+                    <%= button_to "R", {controller: "items", action: "destroy", id: item.id}, {class: 'btn btn-success'}%>
+                </div>
+                
+            </div>
+        <% end %>
+    </div>
+
+</div>
