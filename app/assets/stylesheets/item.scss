@@ -1,0 +1,49 @@
+// Place all the styles related to the item controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.card{
+    width: 50%;
+    min-width: 800px;
+    height: 50%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.card-header{
+    text-align: center;
+}
+
+.add-todo-wrapper{
+    height: 70px;
+    align-items: center;
+}
+
+.todo-item{
+    padding: 5px 20px;
+    align-items: center;
+}
+
+.todo-item:nth-child(even){
+    background-color: lightgray;
+}
+
+.todo-item h2{
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 0;
+    margin: 0;
+}
+
+.button_to{
+    margin-left: 5px;
+}
+
+#item_todos{
+    width: 300px;
+    height: 30px;
+}
+
+.add-todo{
+    height: 30px;
+    font-size: 13px;
+}
