@@ -1,17 +1,17 @@
 <div class="card">
-    <h1>Edit your todo</h1>
+  <h1>Edit your todo</h1>
 
-    <div class="add-todo-wrapper d-flex flex-row justify-content-center">
-        <%= form_for :item, url: edit_item_url, metod: :patch do |t|%>
-        <%= t.text_field :todos %>
-        <%= t.submit value="Edit todo" , class: "btn btn-success add-todo"%>
-        <% end %>
-    </div>
+  <div class="add-todo-wrapper d-flex flex-row justify-content-center">
+    <%= form_for :item, url: edit_item_url, metod: :patch do |t|%>
+      <%= t.text_field :todos %>
+      <%= t.submit value="Edit todo" , class: "btn btn-success add-todo"%>
+    <% end %>
+  </div>
 
-    <div class="todo-list-wrapper">
-            <h2 class="todo-item">
-                <%= @todo.todo%>
-            </h2>
-    </div>
+  <div class="todo-list-wrapper">
+    <h2 class="todo-item">
+  	  <%= @todo.todo%>
+    </h2>
+  </div>
 
 </div>
