@@ -3,7 +3,7 @@
 class CreateItems < ActiveRecord::Migration[6.1]
   def change
     create_table :items do |t|
-      t.string :todo
+      t.text :todo
       t.boolean :isDone
 
       t.timestamps
