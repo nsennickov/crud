@@ -6,13 +6,11 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @newTodo = Item.new(todo: params[:item][:todos], isDone: false)
-    @newTodo.save
+    @newTodo = Item.create!(todo: params[:item][:todos], done: false)
     redirect_to root_path
   end
 
   def edit
-    @todos = Item.all
     @todo = Item.find(params[:id])
   end
 
@@ -20,13 +18,13 @@ class ItemsController < ApplicationController
 
   def update
     @todo = Item.find(params[:id])
-    @todo.update(todo: params[:item][:todos], isDone: false)
-    redirect_to '/'
+    @todo.update(todo: params[:item][:todos], done: false)
+    redirect_to root_path
   end
 
   def destroy
     @todo_to_delete = Item.find(params[:id])
     @todo_to_delete.destroy
-    redirect_to '/'
+    redirect_to root_path
   end
 end
