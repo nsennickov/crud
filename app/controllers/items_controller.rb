@@ -24,6 +24,7 @@ class ItemsController < ApplicationController
 
   def destroy
     @todo_to_delete = Item.find(params[:id])
+    @todo_to_delete.subitems.destroy_all
     @todo_to_delete.destroy
     redirect_to root_path
   end
