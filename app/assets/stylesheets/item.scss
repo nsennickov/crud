@@ -1,11 +1,24 @@
 // Place all the styles related to the item controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+*{
+    font-family: 'Ubuntu', sans-serif;
+}
+
+body{
+    text-align: center;
+}
+
+header{
+    padding: 0 !important;
+}
+
 .card{
     width: 50%;
     min-width: 800px;
     height: 50%;
     margin: 0 auto;
+    margin-top: 50px;
     text-align: center;
 }
 
@@ -46,4 +59,60 @@
 .add-todo{
     height: 30px;
     font-size: 13px;
+    margin-left: 10px;
+}
+
+.add-todo-wrapper form{
+    display: flex;
+    align-items: center;
+}
+
+section{
+    height: calc(100vh - 100px);
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-wrap{
+    text-align: center;
+}
+
+.section-auth-wrap{
+    margin-top: 50px;
+}
+
+.auth-wrap{
+    width: 160px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btn-lg{
+    width: 150px;
+}
+
+.field{
+    margin-top: 20px;
+}
+
+.new_user{
+    margin: 0 auto;
+    margin-top: 50px;
+    width: 25%;
+    border-radius: 10px;
+    box-shadow: 0 0 5px 2px grey;
+    padding: 10px 10px;
+}
+
+#error_explanation h2{
+    font-size: 20px;
+}
+
+#error_explanation ul{
+    list-style: none;
+    padding: 0;
+    color: red;
 }

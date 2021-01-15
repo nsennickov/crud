@@ -1,25 +1,57 @@
-<div class="card">
-  <h1 class="card-header">TODO List</h1>
+  
+<header class="d-flex justify-content-around w-100 card-header">
+  <div class="header-title">
+    <h1 class="">To-Do List</h1>
+  </div>
 
-  <div class="add-todo-wrapper d-flex justify-content-center w-100">
-    <%= form_for :item, url: items_path do |t|%>
-      <%= t.text_field :todos %>
-      <%= t.submit value="ADD TODO", class: "btn btn-outline-success add-todo"%>
+  <div class="auth-wrap d-flex">
+    <% if current_user %>
+      <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: "btn btn-outline-primary" %>
+    <% else %>
+      <%= link_to 'Sing in', new_user_session_path, class: "btn btn-outline-primary" %>
+      <%= link_to 'Sing up', new_user_registration_path, class: "btn btn-outline-primary" %>
     <% end %>
   </div>
 
-  <div class="todo-list-wrapper">
-    <% @todos.each do |item| %>
-      <div class="todo-item d-flex flex-row justify-content-between">
-        <h2><%= item.todo%></h2>
-                
-        <div class="d-flex w-10 justify-content-between">
-          <%= button_to "C", { controller: "items", action: "edit", id: item.id }, { class: 'btn btn-primary', method: "get" }%>
-          <%= button_to "R", { controller: "items", action: "destroy", id: item.id }, { class: 'btn btn-success', method: "delete" }%>
+</header>
+
+
+<% if current_user %>
+  <div class="card">
+
+    <div class="add-todo-wrapper d-flex justify-content-center w-100">
+      <%= form_for :item, url: items_path do |t|%>
+        <%= t.text_field :todo %>
+        <%= t.submit value="ADD TODO", class: "btn btn-outline-success add-todo"%>
+      <% end %>
+    </div>
+
+    <div class="todo-list-wrapper">
+      <% @todos.each do |item| %>
+        <div class="todo-item d-flex flex-row justify-content-between">
+          <h2><%= item.todo%></h2>
+
+          <div class="d-flex w-10 justify-content-between">
+            <%= button_to "C", { controller: "items", action: "edit", id: item.id }, { class: 'btn btn-primary', method: "get" }%>
+            <%= button_to "R", { controller: "items", action: "destroy", id: item.id }, { class: 'btn btn-success', method: "delete" }%>
+          </div>
+
         </div>
-                
-      </div>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
 
-</div>
+  </div>
+<% else %>
+  <section>
+    <div class="section-wrap">
+      <h1>Hi, our new client!</h1>
+      <h2>You need to register before use our product (press "Sign Up")</h2>
+      <h2>Already registered? (press "Sing in")</h2>
+    </div>
+
+    <div class="section-auth-wrap">
+      <%= link_to 'Sing in', new_user_session_path, class: "btn btn-outline-primary btn-lg" %>
+      <%= link_to 'Sing up', new_user_registration_path, class: "btn btn-outline-primary btn-lg" %>
+    </div>
+  </section>
+<% end %>

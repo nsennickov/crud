@@ -10,9 +10,14 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
   </head>
 
   <body>
+    <p class="notice" style="display: none;"><%= notice %></p>
+    <p class="alert" style="display: none;"><%= alert %></p>
     <%= yield %>
   </body>
 </html>
