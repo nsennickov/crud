@@ -2,7 +2,7 @@
   <h1>Edit your subitem</h1>
 
   <div class="add-todo-wrapper d-flex flex-row justify-content-center">
-    <%= form_for :subitem, url: item_subitem_path, method: :patch do |t|%>
+    <%= form_for :subitems, url: item_subitem_path, method: :patch do |t|%>
       <%= t.text_field :title %>
       <%= t.submit value="Edit subitem", class: "btn btn-success add-todo"%>
     <% end %>

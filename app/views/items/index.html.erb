@@ -3,7 +3,7 @@
 
   <div class="add-todo-wrapper d-flex justify-content-center w-100">
     <%= form_for :item, url: items_path do |t|%>
-      <%= t.text_field :todos %>
+      <%= t.text_field :todo %>
       <%= t.submit value="ADD TODO", class: "btn btn-outline-success add-todo"%>
     <% end %>
   </div>
@@ -26,7 +26,7 @@
         <div class="add-sub-form-wrapper" data-key=<%= item.id %>>
           <div class="add-sub-todo-wrapper d-flex justify-content-center w-100">
             <%= form_for :subitems, url: item_subitems_path(item), action: "create" do |t| %>
-              <%= t.text_field :subitem %>
+              <%= t.text_field :title %>
               <%= t.submit value="ADD SUBITEM", class: "btn btn-outline-success add-todo" %>
             <% end %>
           </div>

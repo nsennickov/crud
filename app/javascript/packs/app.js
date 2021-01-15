@@ -16,8 +16,5 @@ function openAddSubItemForm(e) {
         elem.classList.toggle('add-sub-form-active')
       }
     })
-  console.log(keyValue);
-  console.log(this);
 }
-
 }

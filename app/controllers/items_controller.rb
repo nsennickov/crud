@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @newTodo = Item.create!(todo: params[:item][:todos], done: false)
+    Item.create!(accepted_params)
     redirect_to root_path
   end
 
@@ -17,15 +17,16 @@ class ItemsController < ApplicationController
   def show; end
 
   def update
-    @todo = Item.find(params[:id])
-    @todo.update(todo: params[:item][:todos], done: false)
+    Item.find(params[:id]).update(accepted_params)
     redirect_to root_path
   end
 
   def destroy
-    @todo_to_delete = Item.find(params[:id])
-    @todo_to_delete.subitems.destroy_all
-    @todo_to_delete.destroy
+    Item.find(params[:id]).destroy
     redirect_to root_path
+  end
+
+  private def accepted_params
+    params.require(:item).permit(:todo, done: false)
   end
 end
