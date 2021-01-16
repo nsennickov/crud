@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 class ItemsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
-    if current_user
-      @todos = current_user.items.all
-    end
+    @todos = current_user.items.all
   end
 
   def create
@@ -29,7 +29,9 @@ class ItemsController < ApplicationController
     redirect_to root_path
   end
 
-  private def item_params
-    params.require(:item).permit(:todo, :done => false)
+  private
+
+  def item_params
+    params.require(:item).permit(:todo)
   end
 end

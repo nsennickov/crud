@@ -1,104 +1,96 @@
 // Place all the styles related to the item controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-*{
+* {
     font-family: 'Ubuntu', sans-serif;
 }
 
-body{
+body {
     text-align: center;
 }
 
-header{
-    padding: 0 !important;
-}
-
-.card{
+.card {
     width: 50%;
-    min-width: 800px;
+    max-width: 800px;
     height: 50%;
     margin: 0 auto;
     margin-top: 50px;
     text-align: center;
 }
 
-.card-header{
-    text-align: center;
+.card-form {
+    padding: 20px 0;
 }
 
-.add-todo-wrapper{
+.card-header {
+    align-items: center;
+    padding: 0;
+}
+
+.add-todo-wrapper {
     height: 70px;
     align-items: center;
+
+    form {
+        display: flex;
+    }
 }
 
-.todo-item{
+.todo-item {
     padding: 5px 20px;
     align-items: center;
 }
 
-.todo-item:nth-child(even){
+.todo-item:nth-child(even) {
     background-color: lightgray;
 }
 
-.todo-item h2{
-    font-weight: bold;
-    font-size: 1.2rem;
-    padding: 0;
-    margin: 0;
+.todo-item {
+    h2 {
+        font-weight: bold;
+        font-size: 1.2rem;
+        padding: 0;
+        margin: 0;
+    }
 }
 
-.button_to{
+.button_to {
     margin-left: 5px;
 }
 
-#item_todos{
+#item_todos {
     width: 300px;
     height: 30px;
 }
 
-.add-todo{
+.add-todo {
     height: 30px;
     font-size: 13px;
     margin-left: 10px;
 }
 
-.add-todo-wrapper form{
-    display: flex;
-    align-items: center;
+.add-todo-wrapper {
+    form {
+        display: flex;
+        align-items: center;
 }
 
-section{
-    height: calc(100vh - 100px);
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
+.auth-wrap {
+    height: 50%;
+    width: 160px;
     align-items: center;
     justify-content: center;
 }
 
-.section-wrap{
-    text-align: center;
-}
-
-.section-auth-wrap{
-    margin-top: 50px;
-}
-
-.auth-wrap{
-    width: 160px;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.btn-lg{
-    width: 150px;
-}
-
-.field{
+.field {
     margin-top: 20px;
+
+    &:last-child {
+        margin-top: 20px;
+    }
 }
 
-.new_user{
+.new_user {
     margin: 0 auto;
     margin-top: 50px;
     width: 25%;
@@ -107,12 +99,41 @@ section{
     padding: 10px 10px;
 }
 
-#error_explanation h2{
-    font-size: 20px;
+#error_explanation
+    h2 {
+        font-size: 20px;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        color: red;
+    }
 }
 
-#error_explanation ul{
-    list-style: none;
-    padding: 0;
-    color: red;
+
+@media screen and (max-width: 1024px) {
+    .card {
+        width: 80%;
+    }
+
+    .field{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .card {
+        width: 100%;
+        border: none;
+    }
+
+    .add-todo-wrapper{
+        height: 100px;
+        form{
+            flex-direction: column;
+            height: 100%;
+            justify-content: space-around;
+        }
+    }
 }
