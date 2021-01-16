@@ -29,7 +29,7 @@ locale/*/app.edit.po
 log/*
 nbproject
 node_modules
-/public/packs/*
+/public/packs/
 public/assets
 public/javascripts/i18n
 public/system/*

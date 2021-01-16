@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    Item.create!(accepted_params)
+    Item.create!(subitem_params)
     redirect_to root_path
   end
 
@@ -17,7 +17,7 @@ class ItemsController < ApplicationController
   def show; end
 
   def update
-    Item.find(params[:id]).update(accepted_params)
+    Item.find(params[:id]).update(subitem_params)
     redirect_to root_path
   end
 
@@ -26,7 +26,9 @@ class ItemsController < ApplicationController
     redirect_to root_path
   end
 
-  private def accepted_params
-    params.require(:item).permit(:todo, done: false)
+  private
+
+  def subitem_params
+    params.require(:item).permit(:todo)
   end
 end
