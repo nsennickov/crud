@@ -29,6 +29,7 @@ locale/*/app.edit.po
 log/*
 nbproject
 node_modules
+public*
 /public/packs/
 public/assets
 public/javascripts/i18n

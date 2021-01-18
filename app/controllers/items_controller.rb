@@ -1,12 +1,14 @@
 # frozen_string_literal: true
 
 class ItemsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
-    @todos = Item.all
+    @todos = current_user.items.all
   end
 
   def create
-    Item.create!(subitem_params)
+    current_user.items.create!(item_params)
     redirect_to root_path
   end
 
@@ -17,7 +19,7 @@ class ItemsController < ApplicationController
   def show; end
 
   def update
-    Item.find(params[:id]).update(subitem_params)
+    Item.find(params[:id]).update(item_params)
     redirect_to root_path
   end
 
@@ -28,7 +30,7 @@ class ItemsController < ApplicationController
 
   private
 
-  def subitem_params
+  def item_params
     params.require(:item).permit(:todo)
   end
 end
