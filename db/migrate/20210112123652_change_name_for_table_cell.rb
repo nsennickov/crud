@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ChangeNameForTableCell < ActiveRecord::Migration[6.1]
   def change
     change_table :items do |t|

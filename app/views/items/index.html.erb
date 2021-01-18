@@ -3,21 +3,50 @@
 
   <div class="add-todo-wrapper d-flex justify-content-center w-100">
     <%= form_for :item, url: items_path do |t|%>
-      <%= t.text_field :todos %>
+      <%= t.text_field :todo %>
       <%= t.submit value="ADD TODO", class: "btn btn-outline-success add-todo"%>
     <% end %>
   </div>
 
   <div class="todo-list-wrapper">
     <% @todos.each do |item| %>
-      <div class="todo-item d-flex flex-row justify-content-between">
-        <h2><%= item.todo%></h2>
+      <div class="todo-item d-flex flex-column justify-content-center">
+
+        <div class="d-flex flex-row justify-content-between w-100">
+          <h2><%= item.todo%></h2>
                 
-        <div class="d-flex w-10 justify-content-between">
-          <%= button_to "C", { controller: "items", action: "edit", id: item.id }, { class: 'btn btn-primary', method: "get" }%>
-          <%= button_to "R", { controller: "items", action: "destroy", id: item.id }, { class: 'btn btn-success', method: "delete" }%>
+          <div class="d-flex w-10 justify-content-between">
+            <div class='btn btn-secondary plus-item-btn' data-key=<%= item.id%>>+</div>
+              <%= button_to "C", { controller: "items", action: "edit", id: item.id }, { class: 'btn btn-primary', method: "get" }%>
+              <%= button_to "R", { controller: "items", action: "destroy", id: item.id }, { class: 'btn btn-success', method: "delete" }%>
+          </div>
         </div>
-                
+
+
+        <div class="add-sub-form-wrapper" data-key=<%= item.id %>>
+          <div class="add-sub-todo-wrapper d-flex justify-content-center w-100">
+            <%= form_for :subitems, url: item_subitems_path(item), action: "create" do |t| %>
+              <%= t.text_field :title %>
+              <%= t.submit value="ADD SUBITEM", class: "btn btn-outline-success add-todo" %>
+            <% end %>
+          </div>
+
+          <div class="sub-items-wrapper d-flex flex-column">
+
+            <% item.subitems.each do |subitem| %>
+              <div class="d-flex justify-content-between w-75 sub-item">
+                <h4> <%= subitem.title %> </h4>
+
+                <div class="d-flex w-10 justify-content-between">
+                  <%= button_to "C", edit_item_subitem_path(item.id, subitem), method: :get, class: "btn btn-primary" %>
+                  <%= button_to "R", item_subitem_path(item.id, subitem),  method: :delete, class: "btn btn-success" %>
+                </div>
+              </div>
+            <% end %>
+
+          </div>
+        </div> 
+
       </div>
     <% end %>
   </div>

@@ -1,0 +1,17 @@
+<div class="card">
+  <h1>Edit your subitem</h1>
+
+  <div class="add-todo-wrapper d-flex flex-row justify-content-center">
+    <%= form_for :subitems, url: item_subitem_path, method: :patch do |t|%>
+      <%= t.text_field :title %>
+      <%= t.submit value="Edit subitem", class: "btn btn-success add-todo"%>
+    <% end %>
+  </div>
+
+  <div class="todo-list-wrapper">
+    <h2 class="todo-item">
+  	  <%= @subitem.title%>
+    </h2>
+  </div>
+
+</div>
