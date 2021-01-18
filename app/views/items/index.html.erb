@@ -54,13 +54,6 @@
 
           </div>
         </div>
-
-      <div class="todo-item d-flex flex-row justify-content-between">
-        <h2><%= item.todo%></h2>
-        <div class="d-flex w-10 justify-content-between">
-          <%= button_to "C", { controller: "items", action: "edit", id: item.id }, { class: 'btn btn-primary', method: "get" }%>
-          <%= button_to "R", { controller: "items", action: "destroy", id: item.id }, { class: 'btn btn-success', method: "delete" }%>
-        </div>
       </div>
     <% end %>
   </div>
