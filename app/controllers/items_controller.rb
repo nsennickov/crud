@@ -4,23 +4,29 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @todos = current_user.items.all
+    @items = current_user.items.all
   end
 
   def create
-    current_user.items.create!(item_params)
+    @new_item = current_user.items.create(item_params)
+    flash[:error] = @new_item.errors.map { |error| error.full_message }.join(', ') if @new_item.errors.any?
     redirect_to root_path
   end
 
   def edit
-    @todo = Item.find(params[:id])
+    @item = Item.find(params[:id])
   end
 
   def show; end
 
   def update
-    Item.find(params[:id]).update(item_params)
-    redirect_to root_path
+    @item_to_update = Item.find(params[:id])
+    if @item_to_update.update(item_params)
+      redirect_to root_path
+    else
+      flash[:error] = @item_to_update.errors.map { |error| error.full_message }.join(', ')
+      redirect_to action: :edit
+    end
   end
 
   def destroy

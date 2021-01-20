@@ -1,6 +1,6 @@
 <div class="card">
   <h1>Edit your todo</h1>
-
+  <p class="flash-errors"><%= flash[:error] %></p>
   <div class="add-todo-wrapper d-flex flex-row justify-content-center">
     <%= form_for :item, url: item_path, method: :patch do |t|%>
       <%= t.text_field :todo %>
@@ -10,7 +10,7 @@
 
   <div class="todo-list-wrapper">
     <h2 class="todo-item">
-  	  <%= @todo.todo%>
+  	  <%= @item.todo %>
     </h2>
   </div>
 
