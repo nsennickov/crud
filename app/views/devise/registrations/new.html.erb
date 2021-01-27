@@ -1,29 +1,37 @@
+<label class="I18n-dropdown d-flex flex-column">
+  <input type="checkbox" class="checkbox">
+    <ul class="I18n-dropdown-menu">
+      <li><%= link_to 'English', root_path(locale: :en), class: "dropdown-item" %></li>
+      <li><%= link_to 'Русский', root_path(locale: :ru), class: "dropdown-item" %></li>
+    </ul>
+    <img src="https://static.vecteezy.com/system/resources/previews/001/198/064/non_2x/earth-png.png">
+</label>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'card card-form' }) do |f| %>
-  <h2>Sign up</h2>
+  <h2><%= t 'buttons.signup' %></h2>
 
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field form-group">
-    <%= f.label :email %><br />
+    <%= f.label "#{ t 'nikita.email_label_form' }" %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field form-group">
-    <%= f.label :password %>
+    <%= f.label "#{ t 'nikita.pass_label_form' }" %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em>(<%= @minimum_password_length %> <%= t 'nikita.char_min' %>)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
 
   <div class="field form-group">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label "#{ t 'nikita.confirm_new_pass' }" %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
   <div class="actions field d-flex w-100 justify-content-around form-group">
-    <%= f.submit "Sign up", class: 'btn btn-outline-success' %>
+    <%= f.submit "#{ t 'buttons.signup' }", class: 'btn btn-outline-success' %>
     <%= render "devise/shared/links" %>
   </div>
 <% end %>

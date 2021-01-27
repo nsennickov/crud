@@ -1,43 +1,51 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<label class="I18n-dropdown d-flex flex-column">
+  <input type="checkbox" class="checkbox">
+    <ul class="I18n-dropdown-menu">
+      <li><%= link_to 'English', root_path(locale: :en), class: "dropdown-item" %></li>
+      <li><%= link_to 'Русский', root_path(locale: :ru), class: "dropdown-item" %></li>
+    </ul>
+    <img src="https://static.vecteezy.com/system/resources/previews/001/198/064/non_2x/earth-png.png">
+</label>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: 'card card-form' }) do |f| %>
+<h2><%= t 'nikita.edit' %> <%= resource_name.to_s.humanize %></h2>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field form-group">
-    <%= f.label :email %><br />
+    <%= f.label "#{ t 'nikita.email_label_form' }" %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <div><%= t 'nikita.curr_waiting_confirm' %> <%= resource.unconfirmed_email %></div>
   <% end %>
 
   <div class="field form-group">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.label "#{ t 'nikita.pass_label_form' }" %> <i><%= t 'devise.nikita.leave_blank' %></i><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
     <% if @minimum_password_length %>
       <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+      <em><%= @minimum_password_length %> <%= t 'devise.nikita.char_min' %></em>
     <% end %>
   </div>
 
   <div class="field form-group">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label "#{ t 'nikita.confirm_new_pass' }" %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
   <div class="field form-group">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.label :current_password %> <i><%= t 'nikita.need_curr_pass' %></i><br />
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
   <div class="actions form-group">
-    <%= f.submit "Update" %>
+    <%= f.submit "#{ t 'nikita.update' }" %>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<h3><%= t 'nikita.cancel_my_acc' %></h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p><%= t 'nikita.unhappy' %> <%= button_to "#{ t 'nikita.cancel_my_acc' }", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
-<%= link_to "Back", :back %>
+<%= link_to "#{ t 'nikita.back' }", :back %>

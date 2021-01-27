@@ -1,0 +1,15 @@
+ru:
+  mainpage:
+    app_name: 'Заметки'
+  card:
+    add_todo: 'Добавить'
+    add_sub_item: '+ под-задача'
+  pages:
+    item:
+      edit:
+        title: 'Редактировать задачу'
+        button: 'Применить'
+    subitem:
+      edit:
+        title: 'Редактировать под-задачу'
+        button: 'Применить'

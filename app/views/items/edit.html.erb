@@ -1,10 +1,10 @@
 <div class="card">
-  <h1>Edit your todo</h1>
+  <h1><%= t 'pages.item.edit.title'%></h1>
 
   <div class="add-todo-wrapper d-flex flex-row justify-content-center">
     <%= form_for :item, url: item_path, method: :patch do |t|%>
       <%= t.text_field :todo %>
-      <%= t.submit value="Edit todo", class: "btn btn-success add-todo"%>
+      <%= t.submit value="#{ t 'pages.item.edit.button' }", class: "btn btn-success add-todo"%>
     <% end %>
   </div>
 
