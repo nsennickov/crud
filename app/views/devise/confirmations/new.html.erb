@@ -1,15 +1,24 @@
-<h2>Resend confirmation instructions</h2>
+<label class="I18n-dropdown d-flex flex-column">
+  <input type="checkbox" class="checkbox">
+    <ul class="I18n-dropdown-menu">
+      <li><%= link_to 'English', root_path(locale: :en), class: "dropdown-item" %></li>
+      <li><%= link_to 'Русский', root_path(locale: :ru), class: "dropdown-item" %></li>
+    </ul>
+    <img src="https://static.vecteezy.com/system/resources/previews/001/198/064/non_2x/earth-png.png">
+</label>
+
+<h2><%= t 'nikita.resent_confirm_instructions' %></h2>
 
 <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label "#{ t 'nikita.email_label_form' }" %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Resend confirmation instructions" %>
+    <%= f.submit "#{ t 'nikita.resent_confirm_instructions' }" %>
   </div>
 <% end %>
 

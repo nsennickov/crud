@@ -123,11 +123,8 @@ body {
         align-items: center;
 }
 
-.auth-wrap {
-    height: 50%;
-    width: 160px;
-    align-items: center;
-    justify-content: center;
+.w-25 {
+    max-width: 100px;
 }
 
 .field {
@@ -159,6 +156,53 @@ body {
     }
 }
 
+// -------------------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------------------
+.checkbox {
+    display: none;
+}
+
+.I18n-dropdown {
+    height: 50%;
+    width: 30px;
+    margin: 0 auto;
+    position: relative;
+    cursor: pointer;
+
+    img {
+        width: 30px;
+        height: 30px;
+    }
+
+    &:before {
+        content: '\27A4';
+        position: absolute;
+        left: -50%;
+        top: 50%;
+        transform: translate(0, -50%) rotate(90deg);
+    }
+}
+
+.I18n-dropdown-menu {
+    display: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: white;
+    box-shadow: 0 0 2px 2px lightgrey;
+    position: absolute;
+    top: 110%;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 99;
+}
+
+.checkbox:checked + .I18n-dropdown-menu {
+    display: block;
+}
+
+// -------------------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------------------
 
 @media screen and (max-width: 1024px) {
     .card {
