@@ -1,0 +1,3 @@
+
+msgid "Car"
+msgstr "Машина"

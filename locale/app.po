@@ -1,0 +1,14 @@
+msgid "List"
+msgstr ""
+
+msgid "Add item"
+msgstr ""
+
+msgid "Car"
+msgstr "Машина"
+
+msgid "Add subitem"
+msgstr ""
+
+msgid "Printer|Open"
+msgstr ""
