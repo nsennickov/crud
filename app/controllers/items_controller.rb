@@ -1,7 +1,11 @@
 # frozen_string_literal: true
 
 class ItemsController < ApplicationController
+  include FooterServices
+
   before_action :authenticate_user!
+
+  helper_method :generate_footer
 
   def index
     @todos = current_user.items.all
@@ -32,5 +36,9 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:todo)
+  end
+
+  def generate_footer
+    FooterServices.call
   end
 end
