@@ -3,6 +3,8 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!
 
+  helper_method :generate_footer
+
   def index
     @todos = current_user.items.all
   end
@@ -32,5 +34,9 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:todo)
+  end
+
+  def generate_footer
+    FooterServices.new.call
   end
 end
