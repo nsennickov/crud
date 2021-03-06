@@ -1,7 +1,6 @@
-<% Rails.cache.fetch 'footer', expires_in: 1.hour do %>
-  <% @footer = generate_footer %>
-
-  <footer style="background-color: <%= @footer[:background] %>; color: <%= @footer[:color] %>">
-    <p><%= @footer[:title] %></p>
+<% cache "#{AppSetting.last.updated_at}" do %>
+  <% footer = generate_footer %>
+  <footer style="background-color: <%= footer.footer_settings_background %>; color: <%= footer.footer_settings_color %>">
+    <p><%= footer.footer_settings_title %></p>
   </footer>
 <% end %>

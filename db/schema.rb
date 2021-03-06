@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_03_210519) do
+ActiveRecord::Schema.define(version: 2021_03_05_063827) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,7 +32,9 @@ ActiveRecord::Schema.define(version: 2021_03_03_210519) do
   create_table "app_settings", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.text "footer_settings"
+    t.string "footer_settings_title"
+    t.string "footer_settings_background"
+    t.string "footer_settings_color"
   end
 
   create_table "footers", force: :cascade do |t|
