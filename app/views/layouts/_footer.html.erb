@@ -1,0 +1,6 @@
+<% cache "#{AppSetting.last.updated_at}" do %>
+  <% footer = generate_footer %>
+  <footer style="background-color: <%= footer.footer_settings_background %>; color: <%= footer.footer_settings_color %>">
+    <p><%= footer.footer_settings_title %></p>
+  </footer>
+<% end %>

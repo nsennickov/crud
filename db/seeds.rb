@@ -6,3 +6,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+User.create!(email: 'admin@admin.com', password: 'password', password_confirmation: 'password', admin: true)
+AppSetting.create!(footer_settings_title: 'Copyright by Nikita Sennikov',
+                   footer_settings_background: 'black',
+                   footer_settings_color: 'white')
