@@ -1,0 +1,28 @@
+# Here is default options will be applied to all databases,
+# where <%= EVN['VAR'] %> - its a env variable, that assigned in .env file. (Look at the example "example.env")
+# You can change all options if you need it.
+
+default: &default
+  adapter: <%= ENV['DATABASE'] %>
+  encoding: unicode
+  pool: 5
+  username: <%= ENV['DB_USER'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
+  timeout: 5000
+  port: 5674
+
+
+# Here is separate settings for different databases
+# where { myapp_development, myapp_test, myapp_production } - is the name of database you want to use.
+
+development:
+  <<: *default
+  database: myapp_development
+
+test:
+  <<: *default
+  database: myapp_test
+
+profuction:
+  <<: *default
+  database: myapp_production

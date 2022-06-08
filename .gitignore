@@ -5,6 +5,7 @@
 .idea*
 .powenv
 .rvmrc
+.env
 .sass-cache/
 .vscode/settings.json
 bin/wkhtmltopdf
