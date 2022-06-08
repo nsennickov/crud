@@ -1,6 +1,6 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
+<p class="alert flash-errors"><%= alert %></p>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: 'card card-form' }) do |f| %>
+  <h2>Edit <%= resource_name.to_s.humanize %></h2>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field form-group">

@@ -1,6 +1,6 @@
-<h2>Resend unlock instructions</h2>
-
+<p class="alert flash-errors"><%= alert %></p>
 <%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post, class: 'card card-form' }) do |f| %>
+  <h2>Resend unlock instructions</h2>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field form-group">

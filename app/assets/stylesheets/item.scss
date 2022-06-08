@@ -30,9 +30,10 @@ body {
 .add-todo-wrapper {
     height: 70px;
     align-items: center;
-
     form {
         display: flex;
+        align-items: center;
+        column-gap: 5%;
     }
 }
 
@@ -52,6 +53,12 @@ body {
         padding: 0;
         margin: 0;
     }
+}
+
+.todo-item_btns,
+.sub-item_btns {
+    column-gap: 1%;
+    align-self: center;
 }
 
 .button_to {
@@ -92,7 +99,13 @@ body {
 }
 
 .add-sub-todo-wrapper{
+    justify-content: center;
     height: 30px;
+    form {
+        display: flex;
+        align-items: center;
+        column-gap: 5%;
+    }
 }
 
 .sub-items-wrapper{
@@ -115,12 +128,6 @@ body {
 
 .sub-item .btn{
     transform: scale(.7);
-}
-
-.add-todo-wrapper {
-    form {
-        display: flex;
-        align-items: center;
 }
 
 .auth-wrap {
@@ -147,7 +154,7 @@ body {
     padding: 10px 10px;
 }
 
-#error_explanation
+#error_explanation {
     h2 {
         font-size: 20px;
     }
@@ -159,13 +166,20 @@ body {
     }
 }
 
+.flash-errors{
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    color: red;
+}
+
 
 @media screen and (max-width: 1024px) {
     .card {
         width: 80%;
     }
 
-    .field{
+    .field {
         width: 100%;
     }
 }
@@ -176,12 +190,17 @@ body {
         border: none;
     }
 
-    .add-todo-wrapper{
+    .add-todo-wrapper {
         height: 100px;
-        form{
+        form {
             flex-direction: column;
             height: 100%;
             justify-content: space-around;
         }
+    }
+
+    .todo-item_btns,
+    .sub-item_btns {
+        width: 5%;
     }
 }
